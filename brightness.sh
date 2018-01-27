@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/sh -e
 : ${inputdev:=/dev/input/event0} \
   ${low:=10} \
   ${high:=50} \
   ${timeout:=15} \
   ${bl:=/sys/class/backlight/backlight}
+
+type -p mkfifo || export PATH=@coreutils@/bin
 
 daemon_pid=
 
